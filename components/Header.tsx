@@ -4,9 +4,9 @@ const Header = () => {
     const {user} = useUser()
     console.log(user)
   return (
-    <div>
-      
-    </div>
+    <header className="flex flex-wrap justify-between items-center px-4 py-2">
+
+    </header>
   )
 }
 
