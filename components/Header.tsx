@@ -7,9 +7,9 @@ const Header = () => {
     const { user } = useUser()
 
     const createClerkPasskey = async () =>{
-        await user?.createPasskey
+      
     }
-    console.log(user)
+  
     return (
         <header className="flex flex-wrap justify-between items-center px-4 py-2">
             <div>
@@ -31,20 +31,23 @@ const Header = () => {
 
                         <span>My Basket</span></Link>
                         <ClerkLoaded>
-                            {user &&(
-
-                          
+                            
+                            <SignedIn>
+                 
                         <Link
                                     href="/orders"
-                                    className="flex-1 relative flex justify-center sm:justify-start sm:flex-none items-center space-x-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                    className="flex-1 relative flex justify-center sm:justify-start sm:flex-none items-center space-x-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                    >
+
                                     <PackageIcon className="w-6 h-6" />
                                     <span>My Orders</span>
 
                                 </Link>
-                                  )}
+                                
+                                  </SignedIn>
                     {/* user area */}
                  
-                    {user ?(
+                    {user ? (
                         <div className="flex items-center space-x-2">
                             <UserButton  />
                             <div className="hidden sm:block text-xs">
@@ -67,6 +70,8 @@ const Header = () => {
                             
                         </button>
                     )}
+
+
                     </ClerkLoaded>
                 </div>
             </div>
