@@ -5,6 +5,10 @@ import Form from "next/form"
 import { PackageIcon, TrolleyIcon } from "@sanity/icons"
 const Header = () => {
     const { user } = useUser()
+
+    const createClerkPasskey = async () =>{
+        await user?.createPasskey
+    }
     console.log(user)
     return (
         <header className="flex flex-wrap justify-between items-center px-4 py-2">
@@ -51,6 +55,17 @@ const Header = () => {
                     ):(
                         <SignInButton mode="modal"  />
 
+                    )}
+
+                    {user?.passkeys.length === 0 &&(
+                        <button
+                        onClick={createClerkPasskey}
+                        className="bg-white hover:bg-blue-700 hover:text-white
+                        animate-pulse text-blue-500 font-bold py-2 px-4 rounded border-blue-300 border"
+                        >
+                            Create a passkey now
+                            
+                        </button>
                     )}
                     </ClerkLoaded>
                 </div>
